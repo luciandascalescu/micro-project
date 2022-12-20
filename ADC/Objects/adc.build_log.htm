@@ -1,0 +1,327 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Maftei Danut, ATM, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         SARMCM3.DLL V5.37.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.6.0
+Target DLL:      CMSIS_AGDI.dll V1.33.12.0
+Dialog DLL:      TARMCM1.DLL V1.14.6.0
+ 
+<h2>Project:</h2>
+C:\Users\danut\OneDrive\Desktop\ADC\adc.uvprojx
+Project File Date:  12/06/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+Adc.c(1): warning: In file included from...
+./Adc.h(3): warning: // comments are not allowed in this language [-Wcomment]
+#define ADC_AMBIENT_CHANNEL (12) // PORT B PIN 1
+                                 ^
+Adc.c(2): warning: In file included from...
+./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
+void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
+                                   ^
+./Uart.h(6): warning: no newline at end of file [-Wnewline-eof]
+void UART0_IRQHandler(void); // Handler-ul de intreruperi
+                                                         ^
+Adc.c(8): warning: // comments are not allowed in this language [-Wcomment]
+        // Activarea semnalului de ceas pentru modulul periferic ADC
+        ^
+Adc.c(73): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+        uint16_t calibration_var = 0x0000;
+                 ^
+Adc.c(165): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+        for(int i=0;i<16;i++){
+            ^
+Adc.c(165): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+Adc.c(167): warning: implicit conversion loses integer precision: 'unsigned int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                        UART0_Transmit( (((x)&(one<<i))>>i) + 0x30);
+                        ~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~^~~~~~
+Adc.c(164): warning: no previous prototype for function 'print_bin_reversed' [-Wmissing-prototypes]
+void print_bin_reversed(uint16_t x){
+     ^
+Adc.c(164): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void print_bin_reversed(uint16_t x){
+^
+static 
+9 warnings generated.
+compiling Adc.c...
+gpio.c(1): warning: In file included from...
+./gpio.h(3): warning: // comments are not allowed in this language [-Wcomment]
+#define SWITCH_PIN (12) // PORT A
+                        ^
+gpio.c(9): warning: // comments are not allowed in this language [-Wcomment]
+        // Activarea semnalului de ceas pentru pinii folositi <EE>n cadrul led-ului RGB
+        ^
+gpio.c(47): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+3 warnings generated.
+compiling gpio.c...
+Uart.c(1): warning: In file included from...
+./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
+void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
+                                   ^
+./Uart.h(6): warning: no newline at end of file [-Wnewline-eof]
+void UART0_IRQHandler(void); // Handler-ul de intreruperi
+                                                         ^
+Uart.c(2): warning: In file included from...
+./gpio.h(3): warning: // comments are not allowed in this language [-Wcomment]
+#define SWITCH_PIN (12) // PORT A
+                        ^
+Uart.c(3): warning: In file included from...
+./Adc.h(3): warning: // comments are not allowed in this language [-Wcomment]
+#define ADC_AMBIENT_CHANNEL (12) // PORT B PIN 1
+                                 ^
+Uart.c(14): warning: // comments are not allowed in this language [-Wcomment]
+        //Punem in asteptare pana cand registrul de transmisie a datelor nu este gol
+        ^
+Uart.c(15): warning: while loop has empty body [-Wempty-body]
+        while(!(UART0->S1 & UART0_S1_TDRE_MASK));
+                                                ^
+Uart.c(15): note: put the semicolon on a separate line to silence this warning
+Uart.c(23): warning: while loop has empty body [-Wempty-body]
+        while(!(UART0->S1 & UART0_S1_RDRF_MASK));
+                                                ^
+Uart.c(23): note: put the semicolon on a separate line to silence this warning
+Uart.c(53): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+        uint32_t osr = 15; // Over-Sampling Rate (numarul de esantioane luate per bit-time)
+                 ^
+Uart.c(28): warning: no previous prototype for function 'UART0_Init' [-Wmissing-prototypes]
+void UART0_Init(uint32_t baud_rate)
+     ^
+Uart.c(28): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UART0_Init(uint32_t baud_rate)
+^
+static 
+Uart.c(84): warning: no previous extern declaration for non-static variable 'start' [-Wmissing-variable-declarations]
+int start=0;
+    ^
+Uart.c(84): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int start=0;
+^
+Uart.c(85): warning: no previous extern declaration for non-static variable 'ch' [-Wmissing-variable-declarations]
+int ch=ADC_AMBIENT_CHANNEL;
+    ^
+Uart.c(85): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int ch=ADC_AMBIENT_CHANNEL;
+^
+Uart.c(89): warning: declaration shadows a variable in the global scope [-Wshadow]
+        char c = UART0->D; 
+             ^
+Uart.c(5): note: previous declaration is here
+char c; 
+     ^
+Uart.c(104): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+Uart.c(5): warning: no previous extern declaration for non-static variable 'c' [-Wmissing-variable-declarations]
+char c; 
+     ^
+Uart.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char c; 
+^
+Uart.c(6): warning: no previous extern declaration for non-static variable 'buffer' [-Wmissing-variable-declarations]
+char buffer[32];
+     ^
+Uart.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char buffer[32];
+^
+Uart.c(8): warning: no previous extern declaration for non-static variable 'write' [-Wmissing-variable-declarations]
+int write, read;
+    ^
+Uart.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int write, read;
+^
+Uart.c(8): warning: no previous extern declaration for non-static variable 'read' [-Wmissing-variable-declarations]
+int write, read;
+           ^
+Uart.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int write, read;
+^
+Uart.c(9): warning: no previous extern declaration for non-static variable 'print_buffer' [-Wmissing-variable-declarations]
+int print_buffer;
+    ^
+Uart.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int print_buffer;
+^
+Uart.c(10): warning: no previous extern declaration for non-static variable 'full' [-Wmissing-variable-declarations]
+int full;
+    ^
+Uart.c(10): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int full;
+^
+19 warnings generated.
+compiling Uart.c...
+assembling startup_MKL25Z4.s...
+compiling system_MKL25Z4.c...
+main.c(1): warning: In file included from...
+./Adc.h(3): warning: // comments are not allowed in this language [-Wcomment]
+#define ADC_AMBIENT_CHANNEL (12) // PORT B PIN 1
+                                 ^
+main.c(2): warning: In file included from...
+./Uart.h(3): warning: // comments are not allowed in this language [-Wcomment]
+void UART0_Transmit(uint8_t data); // Functie folostia pentru a trimite un octet catre interfata UART
+                                   ^
+./Uart.h(6): warning: no newline at end of file [-Wnewline-eof]
+void UART0_IRQHandler(void); // Handler-ul de intreruperi
+                                                         ^
+main.c(3): warning: In file included from...
+./gpio.h(3): warning: // comments are not allowed in this language [-Wcomment]
+#define SWITCH_PIN (12) // PORT A
+                        ^
+main.c(11): warning: no previous extern declaration for non-static variable 'ambient_low' [-Wmissing-variable-declarations]
+float ambient_low=100.0f;
+      ^
+main.c(11): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+float ambient_low=100.0f;
+^
+main.c(12): warning: no previous extern declaration for non-static variable 'ambient_high' [-Wmissing-variable-declarations]
+float ambient_high=0.0f;
+      ^
+main.c(12): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+float ambient_high=0.0f;
+^
+main.c(14): warning: no previous extern declaration for non-static variable 'vibration_low' [-Wmissing-variable-declarations]
+float vibration_low=100.0f;
+      ^
+main.c(14): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+float vibration_low=100.0f;
+^
+main.c(15): warning: no previous extern declaration for non-static variable 'vibration_high' [-Wmissing-variable-declarations]
+float vibration_high=0.0f;
+      ^
+main.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+float vibration_high=0.0f;
+^
+main.c(17): warning: no previous extern declaration for non-static variable 'region' [-Wmissing-variable-declarations]
+int region=-1;
+    ^
+main.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int region=-1;
+^
+main.c(19): warning: no previous prototype for function 'set_led_green' [-Wmissing-prototypes]
+int set_led_green(){
+    ^
+main.c(19): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int set_led_green(){
+^
+static 
+main.c(19): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+int set_led_green(){
+                 ^
+main.c(23): warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+main.c(25): warning: no previous prototype for function 'set_led_yellow' [-Wmissing-prototypes]
+int set_led_yellow(){
+    ^
+main.c(25): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int set_led_yellow(){
+^
+static 
+main.c(25): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+int set_led_yellow(){
+                  ^
+main.c(29): warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+main.c(31): warning: no previous prototype for function 'set_led_red' [-Wmissing-prototypes]
+int set_led_red(){
+    ^
+main.c(31): note: declare 'static' if the function is not intended to be used outside of this translation unit
+int set_led_red(){
+^
+static 
+main.c(31): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+int set_led_red(){
+               ^
+main.c(35): warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+main.c(37): warning: no previous prototype for function 'update_led' [-Wmissing-prototypes]
+void update_led(float f_value,float *low,float* high){
+     ^
+main.c(37): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void update_led(float f_value,float *low,float* high){
+^
+static 
+main.c(64): warning: no previous prototype for function 'update_limits' [-Wmissing-prototypes]
+void update_limits(float f_value,float *low,float* high){
+     ^
+main.c(64): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void update_limits(float f_value,float *low,float* high){
+^
+static 
+main.c(75): warning: // comments are not allowed in this language [-Wcomment]
+        //big endian
+        ^
+main.c(76): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+        for(int i=0;i<length;i++){
+            ^
+main.c(76): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+main.c(74): warning: no previous prototype for function 'send_buffer' [-Wmissing-prototypes]
+void send_buffer(unsigned char* buffer,int length){
+     ^
+main.c(74): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void send_buffer(unsigned char* buffer,int length){
+^
+static 
+main.c(84): warning: implicit declaration of function 'UART0_Init' [-Wimplicit-function-declaration]
+        UART0_Init(115200);
+        ^
+main.c(103): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+                uint16_t ambient = ADC0_Read(ADC_AMBIENT_CHANNEL);
+                         ^
+26 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=3880 RO-data=288 RW-data=16 ZI-data=368  
+".\Objects\adc.axf" - 0 Error(s), 57 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.Kinetis_KLxx_DFP.1.15.0.pack
+                Keil.Kinetis_KLxx_DFP.1.15.0
+                NXP Kinetis KLxx Series Device Support and Examples
+   * Component: Startup Version: 2.5.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/MKL25Z128xxx4
+  ./RTE/_Target_1
+  C:/Users/danut/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/danut/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:2.5.0
+      Source file:   Device/Source/system_MKL25Z4.c
+      Include file:  Device/Source/system_MKL25Z4.h
+      Source file:   Device/Source/ARM/startup_MKL25Z4.s
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>
